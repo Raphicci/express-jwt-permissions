@@ -10,7 +10,7 @@ var PermissionError = new UnauthorizedError(
 var Guard = function (options) {
   var defaults = {
     requestProperty: 'user',
-    permissionsProperty: 'permissions'
+    permissionsProperty: 'roles'
   }
 
   this._options = xtend(defaults, options)
