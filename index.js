@@ -61,15 +61,9 @@ Guard.prototype = {
         permissions = permissions.split(' ')
       }
 
-      if (!Array.isArray(permissions)) {
-        return next(new UnauthorizedError('permissions_invalid', {
-          message: 'Permissions should be an Array or String. Bad format?'
-        }))
-      }
-
       var sufficient = required.some(function (required) {
         return required.every(function (permission) {
-          return permissions.indexOf(permission) !== -1
+          return permission in permissions
         })
       })
 
